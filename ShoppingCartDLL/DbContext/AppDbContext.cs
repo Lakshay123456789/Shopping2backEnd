@@ -24,6 +24,8 @@ namespace ShoppingCartDLL.DbContext
             this.SeedUserRoles(builder);
         }
         public DbSet<Product> Products { get; set; }
+
+        public DbSet<Post> Posts { get; set; }
         private void SeedUsers(ModelBuilder builder)
         {
             PasswordHasher<User> passwordHasher = new PasswordHasher<User>();

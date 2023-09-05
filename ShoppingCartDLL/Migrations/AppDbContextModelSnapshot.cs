@@ -183,6 +183,23 @@ namespace ShoppingCartDLL.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("ShoppingCartModels.EntityModels.Post", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("PostImage")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PostTitle")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Posts");
+                });
+
             modelBuilder.Entity("ShoppingCartModels.EntityModels.Product", b =>
                 {
                     b.Property<Guid>("Id")
@@ -290,17 +307,17 @@ namespace ShoppingCartDLL.Migrations
                         {
                             Id = "b74ddd14-6340-4840-95c2-db12554843e5",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "7dafa332-18a0-473d-9ea0-2ea02bc4b92c",
+                            ConcurrencyStamp = "96af6229-2c5e-44c8-afa3-f2802a27ef77",
                             Email = "admin@gmail.com",
                             EmailConfirmed = false,
                             FirstName = "Admin",
                             LockoutEnabled = false,
                             NormalizedEmail = "admin@gmail.com",
                             NormalizedUserName = "Admin",
-                            PasswordHash = "AQAAAAEAACcQAAAAEG8vVvkvNejUFCf1wsnPsIiJEw5VcIKg76mjh33ZH/fQkUlEjYmkowZBvViLGIcBtg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEAP4T1yO9rYG8vyEg2k1uQ/qqoFcE4mDBh6ANJBjXYeS7l6WhlnyPILmBYac10WHpQ==",
                             PhoneNumber = "1234567890",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "26113fae-9271-4317-8003-bef0f1b8877a",
+                            SecurityStamp = "96f62cda-89ba-4c9c-95b3-55f512bee95f",
                             TwoFactorEnabled = false,
                             UserName = "Admin"
                         },
@@ -308,17 +325,17 @@ namespace ShoppingCartDLL.Migrations
                         {
                             Id = "F7A13C3E-EB62-4193-9653-CB3BB571DADF",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "c232dc6b-8140-4ac0-b5fc-66ec6ef18381",
+                            ConcurrencyStamp = "a8694ec4-a078-418f-abfb-dc8cefc659b5",
                             Email = "user@gmail.com",
                             EmailConfirmed = false,
                             FirstName = "User",
                             LockoutEnabled = false,
                             NormalizedEmail = "user@gmail.com",
                             NormalizedUserName = "User",
-                            PasswordHash = "AQAAAAEAACcQAAAAEL4q4uLOYcOrTykP7GNidQ0vYBpXGz2TJ+jcL9AUOf+yxSfizNXAvcM2MxEwOQ+lwg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAECr/+IqESBlNh/UpO5SI8bd/SGT1G9yQxTNKfeTj8A4MvXOQ3tXPaCtyiEQ+0XTixA==",
                             PhoneNumber = "1234567890",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "a34fdaec-0e7a-4edb-8ac6-c280ed9f235b",
+                            SecurityStamp = "75212efe-5a34-4b46-8360-0fe476d92c65",
                             TwoFactorEnabled = false,
                             UserName = "User"
                         });

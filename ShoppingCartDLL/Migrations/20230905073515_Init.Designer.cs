@@ -12,8 +12,8 @@ using ShoppingCartDLL.DbContext;
 namespace ShoppingCartDLL.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230831124451_init3")]
-    partial class init3
+    [Migration("20230905073515_Init")]
+    partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -185,6 +185,37 @@ namespace ShoppingCartDLL.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("ShoppingCartModels.EntityModels.Product", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("ProductCatagory")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ProductDescription")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ProductName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal?>("ProductPrice")
+                        .IsRequired()
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int?>("ProductQuantity")
+                        .IsRequired()
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Products");
+                });
+
             modelBuilder.Entity("ShoppingCartModels.EntityModels.User", b =>
                 {
                     b.Property<string>("Id")
@@ -261,17 +292,17 @@ namespace ShoppingCartDLL.Migrations
                         {
                             Id = "b74ddd14-6340-4840-95c2-db12554843e5",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "7b2855c3-7b06-4935-9de3-81d98288b227",
+                            ConcurrencyStamp = "c9176a3b-b419-4d21-9bc9-8180cf80d863",
                             Email = "admin@gmail.com",
                             EmailConfirmed = false,
                             FirstName = "Admin",
                             LockoutEnabled = false,
                             NormalizedEmail = "admin@gmail.com",
                             NormalizedUserName = "Admin",
-                            PasswordHash = "AQAAAAEAACcQAAAAEPseYjDnNuVonMYYLoC3U5Fh8dJfc3H5vW3/Iur6aCSo8o9NkQE09tPwbBRKzWb5Ag==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEOCNzBTWf7U1agb9TnN43cfqacu5mnpwjCtYR0FAB1gkuwCMW2lFvueHnCw0e6FDHg==",
                             PhoneNumber = "1234567890",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "304defcd-a492-4c7a-bf16-6bdae32361fa",
+                            SecurityStamp = "f11dc9f4-5abc-4892-8882-811568050db8",
                             TwoFactorEnabled = false,
                             UserName = "Admin"
                         },
@@ -279,17 +310,17 @@ namespace ShoppingCartDLL.Migrations
                         {
                             Id = "F7A13C3E-EB62-4193-9653-CB3BB571DADF",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "8cfcdef4-8c01-4ebe-acbb-c07d255874df",
+                            ConcurrencyStamp = "e6f93b60-121b-4e45-9d55-ba533fef1dbe",
                             Email = "user@gmail.com",
                             EmailConfirmed = false,
                             FirstName = "User",
                             LockoutEnabled = false,
                             NormalizedEmail = "user@gmail.com",
                             NormalizedUserName = "User",
-                            PasswordHash = "AQAAAAEAACcQAAAAEAHFU5U4lQY3T6mp/M8EJNDwUuha/IRDkyengEg8e8SHSo2rgLCWwZ80V8bsLASZOw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEF12RhgTiTJmechL/o5SljCWBAIVGp7oIUnQHoZC/RcE7GrM5t5W/5rt0RXlyhEVJg==",
                             PhoneNumber = "1234567890",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "d4d847bb-76d8-4a4b-95b8-86b572e92a7e",
+                            SecurityStamp = "74bc1291-5b30-41e7-87eb-92e1fa421461",
                             TwoFactorEnabled = false,
                             UserName = "User"
                         });

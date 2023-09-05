@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ShoppingCartDLL.Migrations
 {
-    public partial class init1 : Migration
+    public partial class Init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -48,6 +48,22 @@ namespace ShoppingCartDLL.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Products",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ProductName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ProductDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ProductQuantity = table.Column<int>(type: "int", nullable: false),
+                    ProductPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    ProductCatagory = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Products", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -170,8 +186,8 @@ namespace ShoppingCartDLL.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "b74ddd14-6340-4840-95c2-db12554843e5", 0, "fe626ba5-bff2-4ecf-b1e5-70094b9ef0f1", "admin@gmail.com", false, "Admin", null, false, null, null, null, null, "1234567890", false, "6b15e8c9-0b3d-4817-b68a-8cd66d432f80", false, "Admin" },
-                    { "F7A13C3E-EB62-4193-9653-CB3BB571DADF", 0, "a8d5b6c8-4374-41e1-926c-ed2bef7a5db7", "user@gmail.com", false, "User", null, false, null, null, null, null, "1234567890", false, "b5aca5e7-b653-402b-a33d-8956806aa3b3", false, "User" }
+                    { "b74ddd14-6340-4840-95c2-db12554843e5", 0, "c9176a3b-b419-4d21-9bc9-8180cf80d863", "admin@gmail.com", false, "Admin", null, false, null, "admin@gmail.com", "Admin", "AQAAAAEAACcQAAAAEOCNzBTWf7U1agb9TnN43cfqacu5mnpwjCtYR0FAB1gkuwCMW2lFvueHnCw0e6FDHg==", "1234567890", false, "f11dc9f4-5abc-4892-8882-811568050db8", false, "Admin" },
+                    { "F7A13C3E-EB62-4193-9653-CB3BB571DADF", 0, "e6f93b60-121b-4e45-9d55-ba533fef1dbe", "user@gmail.com", false, "User", null, false, null, "user@gmail.com", "User", "AQAAAAEAACcQAAAAEF12RhgTiTJmechL/o5SljCWBAIVGp7oIUnQHoZC/RcE7GrM5t5W/5rt0RXlyhEVJg==", "1234567890", false, "74bc1291-5b30-41e7-87eb-92e1fa421461", false, "User" }
                 });
 
             migrationBuilder.InsertData(
@@ -240,6 +256,9 @@ namespace ShoppingCartDLL.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "Products");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

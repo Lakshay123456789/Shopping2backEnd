@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using ShoppingCartModels.EntityModels;
+using ShoppingCartModels.EntityModels.ModelDto;
 using ShoppingCartModels.ModelDto;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,8 @@ namespace ShoppingCartBLL.Automapper
         public MappingProfile()
         {
             CreateMap<ProductDto, Product>();
+
+            CreateMap <PostDto, Post>();
         }
      
     }

@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using ShoppingCartBLL.AccountServices;
+using ShoppingCartBLL.PostService;
 using ShoppingCartBLL.ProductServices;
 using ShoppingCartDLL.DbContext;
 using ShoppingCartDLL.Repositary;
@@ -91,6 +92,7 @@ namespace WebApplication1
             builder.Services.AddScoped<IAccountClass, AccountClass>();
             builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             builder.Services.AddScoped<IProductService, ProductService>();
+            builder.Services.AddScoped<IPostService, PostService>();
             builder.Services.AddScoped<ILoginRepo, LoginRepo>();
             var app = builder.Build();
 

@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ShoppingCartBLL.AccountServices;
+using ShoppingCartBLL.PostService;
 using ShoppingCartBLL.ProductServices;
 using ShoppingCartModels.EntityModels;
+using ShoppingCartModels.EntityModels.ModelDto;
 using ShoppingCartModels.ModelDto;
 
 namespace WebApplication1.Controllers
@@ -13,9 +15,11 @@ namespace WebApplication1.Controllers
     public class ProductController:ControllerBase
     {
         private readonly IProductService _productService;
-        public ProductController(IProductService productService)
+        private readonly IPostService _postService;
+        public ProductController(IProductService productService,IPostService postService)
         {
             _productService = productService;
+            _postService = postService;
         }
 
         [HttpGet("Getallproducts")]
@@ -96,6 +100,33 @@ namespace WebApplication1.Controllers
             }
         }
 
+        [HttpPost("addNewPost")]
 
+        public async Task<IActionResult> InsertNewPost(PostDto post)
+        {
+            try
+            {
+                await _postService.InsertPost(post);
+                return Ok();
+            }catch(Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
+        }
+
+        [HttpGet("GetAllImage")]
+      
+        public async Task<IActionResult> GetAllMethod()
+        {
+            try
+            {
+                var posts = await _postService.GetAllMethod();
+                return Ok(posts);
+
+            }catch(Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
+        }
     }
 }
